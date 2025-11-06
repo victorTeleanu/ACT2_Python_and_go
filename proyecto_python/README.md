@@ -33,7 +33,7 @@ python main.py
 ## Cómo ejecutar los tests
 Desde la raíz del proyecto:
 ```bash
-python -m unittest passwdmgr.passwdmgr_test
+python -m unittest passwdmgr.test_passwdmgr
 ```
 
 ## Descripción de los tests
