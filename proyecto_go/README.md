@@ -3,8 +3,15 @@
 Este proyecto implementa un **conversor de monedas en Go** que permite convertir cantidades entre diferentes monedas usando tasas fijas. Incluye pruebas unitarias para verificar que las conversiones funcionen correctamente.
 
 ## Archivos principales
-- `main.go`: ejecuta un ejemplo del programa usando la función `Convert`.
-- `converter/converter.go`: contiene la función `Convert` y el mapa de tasas de cambio.
+- `main.go`: ejecuta un ejemplo del programa usando la función `Convert`. Se inicializan las variables amount, from y to, se llama a Convert y se maneja cualquier error retornado. Finalmente, imprime el resultado de la conversión formateado con dos decimales.
+- `converter/converter.go`: contiene la función `Convert` y el mapa de tasas de cambio. Rates: un mapa (map[string]float64) que almacena las tasas de cambio de distintas monedas respecto al euro (EUR). Convert(amount float64, from, to string) (float64, error): función que realiza la conversión de divisas.
+
+    1. Verifica que las monedas from y to existan en el mapa rates. Si alguna no existe, retorna un error.
+
+    2. Convierte la cantidad amount de la moneda origen a euros (inEUR := amount / fromRate).
+
+    3. Convierte el resultado a la moneda destino (inEUR * toRate) y lo retorna.
+
 - `converter/converter_test.go`: contiene los tests unitarios para la función `Convert`.
 - `go.mod`: define el módulo Go del proyecto y gestiona las dependencias.
 

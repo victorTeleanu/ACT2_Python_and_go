@@ -4,7 +4,20 @@ Este proyecto implementa un **gestor de contraseñas en Python** que permite alm
 
 ## Archivos principales
 - `main.py`: ejecuta ejemplos del programa usando las funciones del gestor de contraseñas.
-- `passwdmgr/passwdmgr.py`: contiene las funciones (`add`, `get`, `delete`, `list_services`) y el diccionario en memoria.
+- `passwdmgr/passwdmgr.py`: contiene la lógica del gestor de contraseñas. Incluye:
+
+    - Clase Entry: representa una entrada de contraseña con atributos service, username y password. El método to_dict() permite convertir la entrada en un diccionario.
+
+    - Diccionario passwords: almacena las entradas de manera persistente en memoria, usando el nombre del servicio como clave.
+
+    - Función add(service, username, password): añade una nueva entrada o actualiza una existente en el diccionario passwords.
+
+    - Función get(service): devuelve las credenciales de un servicio dado. Si no existe, retorna "Servicio no encontrado".
+
+    - Función delete(service): elimina la entrada de un servicio. Si no existe, imprime un mensaje de error.
+
+    - Función list_services(): devuelve una lista con todos los nombres de servicios almacenados en el diccionario.
+
 - `passwdmgr/passwdmgr_test.py`: contiene los tests unitarios para las funciones.
 - `passwdmgr/__init__.py`: indica que la carpeta es un paquete Python.
 
